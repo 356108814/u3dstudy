@@ -219,8 +219,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  far clip plane: 1000
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcdb0a1eb474bcdb7e1d7c3df0855d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: idle
   moveSpeed: 2
   rotationSpeed: 30
 --- !u!64 &360049583
@@ -314,6 +315,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &360049585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360049579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefcd8e93aa39ef4cadc9aa3b8e3423c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &389713105
 PrefabInstance:
   m_ObjectHideFlags: 0
