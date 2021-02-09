@@ -169,6 +169,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed6f0b54f9d3054d94ac7c91c13d127, type: 3}
+--- !u!1 &104992439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4141981923364201073, guid: 5010e2986c050394c8021c44e227581c,
+    type: 3}
+  m_PrefabInstance: {fileID: 638885835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &104992442
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104992439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &104992443
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104992439}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &107501511
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,9 +318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcdb0a1eb474bcdb7e1d7c3df0855d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: idle
   moveSpeed: 2
   rotationSpeed: 30
+  isRun: 0
+  isAttack: 0
 --- !u!64 &360049583
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -294,7 +331,7 @@ MeshCollider:
   m_GameObject: {fileID: 360049579}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -311,7 +348,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -327,6 +364,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefcd8e93aa39ef4cadc9aa3b8e3423c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &360049586
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360049579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &389713105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,7 +600,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114274338202348230, guid: 360e769726970954fb7f09b03b970ab4, type: 3}
+    - {fileID: 114048431651165480, guid: 360e769726970954fb7f09b03b970ab4, type: 3}
+    - {fileID: 114854603684032448, guid: 360e769726970954fb7f09b03b970ab4, type: 3}
+    - {fileID: 114116141714038024, guid: 360e769726970954fb7f09b03b970ab4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 360e769726970954fb7f09b03b970ab4, type: 3}
 --- !u!1 &1014303892
 GameObject:
@@ -631,6 +686,7 @@ GameObject:
   - component: {fileID: 1078087429}
   - component: {fileID: 1078087428}
   - component: {fileID: 1078087427}
+  - component: {fileID: 1078087430}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -700,6 +756,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1078087430
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078087426}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1483801157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,7 +827,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114585891977602972, guid: 85adcca5f35f38c46b713feae8b31784, type: 3}
+    - {fileID: 114006158878931194, guid: 85adcca5f35f38c46b713feae8b31784, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85adcca5f35f38c46b713feae8b31784, type: 3}
 --- !u!1001 &1831388451
 PrefabInstance:
